@@ -2,12 +2,14 @@ name: ApplicationBuild
 
 on: [push, pull_request]
 
-env:
-  OUTPUT_PATH: "D:/apk"
-  BUNDLE_ID: "com.hoge.hogehoge"
-  PRODUCT_NAME: "New Unity Project"
-  COMPANY_NAME: "DefaultCompany"
-  UNITY_VERSION: 2019.3.3f1
+#まだ動かない
+#env:
+#  OUTPUT_PATH: "D:/apk"
+#  BUNDLE_ID: "com.hoge.hogehoge"
+#  PRODUCT_NAME: "New Unity Project"
+#  COMPANY_NAME: "DefaultCompany"
+#  UNITY_VERSION: 2019.3.3f1
+
 jobs:
   build:
     runs-on: self-hosted
