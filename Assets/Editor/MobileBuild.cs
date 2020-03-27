@@ -9,6 +9,31 @@ using UnityEditor.Callbacks;
 
 public class MobileBuild
 {
+    
+    public static void TestBuild()
+    {
+        // ビルド対象シーンリスト
+        string[] sceneList = {
+            "./Assets/Scenes/SampleScene.unity",
+        };
+
+
+        // 実行
+        BuildReport errorMessage = BuildPipeline.BuildPlayer(
+            sceneList,                          //!< ビルド対象シーンリスト
+            "C:/project/bin/bbbb.apk",   //!< 出力先
+            BuildTarget.Android,      //!< ビルド対象プラットフォーム
+            BuildOptions.Development            //!< ビルドオプション
+        );
+
+
+        // 結果出力
+        if( !string.IsNullOrEmpty( errorMessage.ToString() ) )
+            Debug.LogError( "[Error!] " + errorMessage );
+        else
+            Debug.Log( "[Success!]" );
+    }
+    
     static string[] GetEnabledScenes()
     {
         return (
@@ -19,14 +44,14 @@ public class MobileBuild
                ).ToArray();
     }
 
-    private static void BuildAndroid()
+    public static void BuildAndroid()
     {
         // Setting for Android
         EditorPrefs.SetBool("NdkUseEmbedded", true);
         EditorPrefs.SetBool("SdkUseEmbedded", true);
         EditorPrefs.SetBool("JdkUseEmbedded", true);
         EditorUserBuildSettings.androidBuildSystem = AndroidBuildSystem.Gradle;
-        PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
+        PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.Mono2x);
 
         // Build
         bool result = Build(BuildTarget.Android);
