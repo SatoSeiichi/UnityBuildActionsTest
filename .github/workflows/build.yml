@@ -14,5 +14,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Android Build
-      run: C:\ProgramFiles\Unity\Hub\Editor\2019.3.3f1\Editor\Unity.exe -quit -batchmode -nographics -silent-crashes -logFile \
+      run: C:\Program Files\Unity\Hub\Editor\2019.3.3f1\Editor\Unity -quit -batchmode -nographics -silent-crashes -logFile \
           -projectPath ./ -executeMethod MobileBuild.BuildAndroid -buildTarget Android
