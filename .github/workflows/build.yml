@@ -3,7 +3,7 @@ name: ApplicationBuild
 on: [push, pull_request]
 
 env:
-  OUTPUT_PATH: "D:\apk"
+  OUTPUT_PATH: "D:/apk"
   BUNDLE_ID: "com.hoge.hogehoge"
   PRODUCT_NAME: "New Unity Project"
   COMPANY_NAME: "DefaultCompany"
