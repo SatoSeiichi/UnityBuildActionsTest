@@ -9,7 +9,6 @@ using UnityEditor.Callbacks;
 
 public class MobileBuild
 {
-    
     public static void TestBuild()
     {
         // ビルド対象シーンリスト
@@ -21,11 +20,11 @@ public class MobileBuild
         // 実行
         BuildReport errorMessage = BuildPipeline.BuildPlayer(
             sceneList,                          //!< ビルド対象シーンリスト
-            "C:/project/bin/bbbb.apk",   //!< 出力先
+            "C:/project/bin/GitHubActionsBuild.apk",   //!< 出力先
             BuildTarget.Android,      //!< ビルド対象プラットフォーム
             BuildOptions.Development            //!< ビルドオプション
         );
-
+        PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
 
         // 結果出力
         if( !string.IsNullOrEmpty( errorMessage.ToString() ) )
@@ -34,6 +33,7 @@ public class MobileBuild
             Debug.Log( "[Success!]" );
     }
     
+////////////この行以降　動かない/////////////////////////   
     static string[] GetEnabledScenes()
     {
         return (
