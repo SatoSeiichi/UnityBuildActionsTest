@@ -14,4 +14,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Android Build
-      run: powershell -command "& 'C:/Program Files/Unity/Hub/Editor/2019.3.3f1/Editor/Unity.exe'" -quit -logFile .\build.log -projectPath D:\testActionF\UnityBuildActionsTest\UnityBuildActionsTest -executeMethod MobileBuild.TestBuild -buildTarget Android
+      run: powershell -command "& '${{ secrets.UNITY_EDITOR_PATH }}'" -quit -logFile .\build.log -projectPath ${{ secrets.PROJECT_PATH }} -executeMethod MobileBuild.TestBuild -buildTarget Android
